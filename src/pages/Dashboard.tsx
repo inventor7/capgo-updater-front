@@ -52,7 +52,7 @@ export const Dashboard = () => {
   const statsDisplay = stats ? [
     {
       title: "Total Bundles",
-      value: stats.totalBundles.toString(),
+      value: stats.totalBundles,
       change: "+12%",
       changeType: "positive" as const,
       icon: Package,
@@ -60,7 +60,7 @@ export const Dashboard = () => {
     },
     {
       title: "Active Devices",
-      value: stats.activeDevices.toString(),
+      value: stats.activeDevices,
       change: "+5%",
       changeType: "positive" as const,
       icon: Smartphone,
@@ -68,7 +68,7 @@ export const Dashboard = () => {
     },
     {
       title: "Active Channels",
-      value: stats.activeChannels.toString(),
+      value: stats.activeChannels,
       change: "0%",
       changeType: "neutral" as const,
       icon: Users,
@@ -76,7 +76,7 @@ export const Dashboard = () => {
     },
     {
       title: "Total Downloads",
-      value: stats.totalDownloads.toString(),
+      value: stats.totalDownloads,
       change: "+18%",
       changeType: "positive" as const,
       icon: Download,
