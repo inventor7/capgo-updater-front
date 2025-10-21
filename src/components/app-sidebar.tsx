@@ -9,8 +9,8 @@ import {
   IconSettings,
   IconHelp,
   IconSearch,
-  IconDatabase,
-  IconReport,
+  // IconDatabase,
+  // IconReport,
 } from "@tabler/icons-react"
 import { Link, useLocation } from "react-router-dom";
 
@@ -77,18 +77,14 @@ const navSecondary = [
   },
 ];
 
-const documents = [
-  {
-    name: "Data Library",
-    url: "#",
-    icon: IconDatabase,
-  },
-  {
-    name: "Reports",
-    url: "#",
-    icon: IconReport,
-  },
-];
+// const documents = [
+//   {
+//     name: "Data Library",
+//     url: "#",
+//     icon: IconDatabase,
+//   },
+ 
+// ];
 
 const user = {
   name: "Admin User",
@@ -131,7 +127,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             </SidebarMenuItem>
           ))}
         </div>
-        <div className="px-2 mt-4">
+        {/* <div className="px-2 mt-4">
           {documents.map((document) => (
             <SidebarMenuItem key={document.name}>
               <SidebarMenuButton asChild>
@@ -142,7 +138,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               </SidebarMenuButton>
             </SidebarMenuItem>
           ))}
-        </div>
+        </div> */}
         <NavSecondary items={navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
