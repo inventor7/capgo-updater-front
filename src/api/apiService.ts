@@ -119,7 +119,7 @@ export const apiService = {
   // Update checks and related endpoints
   checkForUpdate: (data: {
     platform: string;
-    version: string;
+    version_build: string;
     appId: string;
     channel?: string;
     deviceId?: string;

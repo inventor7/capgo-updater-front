@@ -1,19 +1,23 @@
 import * as React from "react"
 import {
+  IconCamera,
+  IconChartBar,
+  IconFileAi,
+  IconFileDescription,
+  IconHelp,
+  IconInnerShadowTop,
+  IconSearch,
+  IconSettings,
+
   IconHome,
   IconUpload,
   IconPackage,
   IconPackages,
   IconDeviceMobile,
-  IconChartBar,
-  IconSettings,
-  IconHelp,
-  IconSearch,
-  // IconDatabase,
-  // IconReport,
 } from "@tabler/icons-react"
-import { Link, useLocation } from "react-router-dom";
 
+// import { NavDocuments } from "@/components/nav-documents"
+import { NavMain } from "@/components/nav-main"
 import { NavSecondary } from "@/components/nav-secondary"
 import { NavUser } from "@/components/nav-user"
 import {
@@ -26,8 +30,16 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
 
-const navMain = [
-  {
+
+
+const data = {
+  user: {
+  name: "Admin User",
+  email: "admin@capgo.example",
+  avatar: "/avatars/capgo-admin.jpg",
+},
+  navMain: [
+    {
     title: "Dashboard",
     url: "/dashboard",
     icon: IconHome,
@@ -57,44 +69,76 @@ const navMain = [
     url: "/stats",
     icon: IconChartBar,
   },
-];
-
-const navSecondary = [
-  {
-    title: "Settings",
-    url: "#",
-    icon: IconSettings,
-  },
-  {
-    title: "Get Help",
-    url: "#",
-    icon: IconHelp,
-  },
-  {
-    title: "Search",
-    url: "#",
-    icon: IconSearch,
-  },
-];
-
-// const documents = [
-//   {
-//     name: "Data Library",
-//     url: "#",
-//     icon: IconDatabase,
-//   },
+  ],
+  navClouds: [
+    {
+      title: "Capture",
+      icon: IconCamera,
+      isActive: true,
+      url: "#",
+      items: [
+        {
+          title: "Active Proposals",
+          url: "#",
+        },
+        {
+          title: "Archived",
+          url: "#",
+        },
+      ],
+    },
+    {
+      title: "Proposal",
+      icon: IconFileDescription,
+      url: "#",
+      items: [
+        {
+          title: "Active Proposals",
+          url: "#",
+        },
+        {
+          title: "Archived",
+          url: "#",
+        },
+      ],
+    },
+    {
+      title: "Prompts",
+      icon: IconFileAi,
+      url: "#",
+      items: [
+        {
+          title: "Active Proposals",
+          url: "#",
+        },
+        {
+          title: "Archived",
+          url: "#",
+        },
+      ],
+    },
+  ],
+  navSecondary: [
+    {
+      title: "Settings",
+      url: "#",
+      icon: IconSettings,
+    },
+    {
+      title: "Get Help",
+      url: "#",
+      icon: IconHelp,
+    },
+    {
+      title: "Search",
+      url: "#",
+      icon: IconSearch,
+    },
+  ],
  
-// ];
-
-const user = {
-  name: "Admin User",
-  email: "admin@capgo.example",
-  avatar: "/avatars/capgo-admin.jpg",
-};
+}
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  const location = useLocation();
-
   return (
     <Sidebar collapsible="offcanvas" {...props}>
       <SidebarHeader>
@@ -104,45 +148,21 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               asChild
               className="data-[slot=sidebar-menu-button]:!p-1.5"
             >
-              <Link to="/dashboard">
-                <span className="text-base font-semibold">Capgo Admin</span>
-              </Link>
+              <a href="#">
+                <IconInnerShadowTop className="!size-5" />
+                <span className="text-base font-semibold">Capgo updater</span>
+              </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <div className="px-2">
-          {navMain.map((item) => (
-            <SidebarMenuItem key={item.title}>
-              <SidebarMenuButton
-                asChild
-                isActive={location.pathname === item.url}
-              >
-                <Link to={item.url}>
-                  <item.icon />
-                  <span>{item.title}</span>
-                </Link>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          ))}
-        </div>
-        {/* <div className="px-2 mt-4">
-          {documents.map((document) => (
-            <SidebarMenuItem key={document.name}>
-              <SidebarMenuButton asChild>
-                <a href={document.url}>
-                  <document.icon />
-                  <span>{document.name}</span>
-                </a>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          ))}
-        </div> */}
-        <NavSecondary items={navSecondary} className="mt-auto" />
+        <NavMain items={data.navMain} />
+        {/* <NavDocuments items={data.documents} /> */}
+        <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={user} />
+        <NavUser user={data.user} />
       </SidebarFooter>
     </Sidebar>
   )

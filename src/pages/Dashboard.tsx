@@ -97,12 +97,12 @@ export const Dashboard = () => {
 
   return (
     <div className="space-y-6">
-      <div>
+      {/* <div>
         <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
         <p className="text-muted-foreground">
           Overview of your Capgo Self-Hosted Update Server
         </p>
-      </div>
+      </div> */}
 
       {error && (
         <div className="bg-destructive/15 text-destructive p-4 rounded-md">
@@ -121,7 +121,7 @@ export const Dashboard = () => {
               <stat.icon className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{stat.value}</div>
+              <div className="text-4xl font-bold">{stat.value}</div>
               <p className="text-xs text-muted-foreground mt-1">{stat.description}</p>
               <div className={`text-xs mt-1 flex items-center ${
                 stat.changeType === 'positive' ? 'text-emerald-500' :
