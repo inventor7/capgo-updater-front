@@ -168,4 +168,27 @@ export const apiService = {
     channel?: string;
     environment?: string;
   }) => api.get("/updates", { params: data }),
+
+  // Native Updates API
+  getNativeUpdates: () => api.get("/dashboard/native-updates"),
+  uploadNativeUpdate: (data: FormData) =>
+    api.post("/admin/native-upload", data, {
+      headers: { "Content-Type": "multipart/form-data" },
+    }),
+  updateNativeUpdate: (
+    id: string,
+    data: {
+      active?: boolean;
+      required?: boolean;
+      release_notes?: string;
+    }
+  ) => api.put(`/dashboard/native-updates/${id}`, data),
+  deleteNativeUpdate: (id: string) =>
+    api.delete(`/dashboard/native-updates/${id}`),
+  checkNativeUpdate: (data: {
+    platform: string;
+    current_version_code: number;
+    channel?: string;
+    environment?: string;
+  }) => api.get("/native-updates/check", { params: data }),
 };

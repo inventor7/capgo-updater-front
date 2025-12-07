@@ -69,6 +69,16 @@ const data = {
     url: "/stats",
     icon: IconChartBar,
   },
+  {
+    title: "Native Updates",
+    url: "/native-updates",
+    icon: IconDeviceMobile,
+  },
+  {
+    title: "Upload Native",
+    url: "/native-updates/upload",
+    icon: IconUpload,
+  },
   ],
   navClouds: [
     {

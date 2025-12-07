@@ -12,7 +12,9 @@ import {
   Bundles,
   Channels,
   Devices,
-  Stats
+  Stats,
+  NativeUpdates,
+  UploadNativeUpdate
 } from "./pages";
 
 function App() {
@@ -38,6 +40,8 @@ function App() {
               <Route path="/channels" element={<Channels />} />
               <Route path="/devices" element={<Devices />} />
               <Route path="/stats" element={<Stats />} />
+              <Route path="/native-updates" element={<NativeUpdates />} />
+              <Route path="/native-updates/upload" element={<UploadNativeUpdate />} />
             </Routes>
           </main>
         </SidebarInset>
