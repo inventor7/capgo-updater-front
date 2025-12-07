@@ -85,7 +85,7 @@ export const Stats = () => {
 
   // Calculate summary stats
   const totalDownloads = filteredStats.filter(s => s.action === 'download').length;
-  const successfulDownloads = filteredStats.filter(s => s.status === 'installed').length;
+  // const _successfulDownloads = filteredStats.filter(s => s.status === 'installed').length;
   const failedDownloads = filteredStats.filter(s => s.status === 'failed' || s.status === 'checksum_fail').length;
   const successfulUpdates = filteredStats.filter(s => s.status === 'installed').length;
 

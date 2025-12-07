@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from "@reduxjs/toolkit";
 
 // Create the store with an initial state that might be expected by Recharts
 export const store = configureStore({
@@ -7,13 +7,13 @@ export const store = configureStore({
   },
   // Provide an initial state that includes properties that libraries like Recharts might expect
   preloadedState: {},
-  devTools: process.env.NODE_ENV !== 'production',
+  devTools: import.meta.env.MODE !== "production",
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [
-          'persist/PERSIST', 
-          'persist/REHYDRATE',
+          "persist/PERSIST",
+          "persist/REHYDRATE",
           // Add any other actions that might not be serializable
         ],
         ignoredPaths: [

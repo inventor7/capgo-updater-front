@@ -1,12 +1,12 @@
 import {
-  ColumnDef,
+  type ColumnDef,
   flexRender,
   getCoreRowModel,
   getPaginationRowModel,
   useReactTable,
-  SortingState,
+  type SortingState,
   getSortedRowModel,
-  ColumnFiltersState,
+  type ColumnFiltersState,
   getFilteredRowModel,
 } from "@tanstack/react-table";
 
@@ -83,9 +83,9 @@ export function DataTable<TData, TValue>({
         {searchColumn && (
           <Input
             placeholder={searchPlaceholder}
-            value={(table.getColumn(searchField)?.getFilterValue() as string) ?? ""}
+            value={(searchColumn.getFilterValue() as string) ?? ""}
             onChange={(event) =>
-              table.getColumn(searchField)?.setFilterValue(event.target.value)
+              searchColumn.setFilterValue(event.target.value)
             }
             className="max-w-sm"
           />
